@@ -1,0 +1,71 @@
+@import url("main.css");
+
+div.top-bg
+{
+	background-color: #222;
+	margin: 0px;
+	padding: 20px;
+}
+
+div.title
+{
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70px;
+	font-size: 300%;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+img.title
+{
+	max-height: 100%;
+	margin-right: 10px;
+}
+
+div.subtitle
+{
+	color: white;
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 125%;
+}
+
+div.screenshot
+{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+div.screenshot > div
+{
+	margin: 20px 20px auto 20px;
+}
+
+img.screenshot
+{
+	max-width: 970px;
+	width: 100%;
+}
+
+h2,h3
+{
+	margin-top: 0px;
+}
+
+div.features-grid
+{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+
+div.feature
+{
+	width: 48%;
+}

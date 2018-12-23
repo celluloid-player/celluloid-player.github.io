@@ -1,0 +1,154 @@
+<!-- vim: set ts=4 sw=4 tw=0: !-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GNOME MPV - Installation</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+		<link rel="shortcut icon" href="images/favicon.png">
+	</head>
+	<body>
+		<div class="navbar-bg">
+			<div class="navbar">
+				<a class="navitem" href="index.html">
+					<div class="navitem">
+						Home
+					</div>
+				</a>
+				<div class="navitem current-navitem">
+					Installation
+				</div>
+				<a class="navitem" href="help.html">
+					<div class="navitem">
+						Help
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="content">
+			<h2>GNU/Linux packages</h2>
+			<table>
+				<tr>
+					<td>Arch Linux</td>
+					<td><a href="https://www.archlinux.org/packages/gnome-mpv">https://www.archlinux.org/packages/gnome-mpv</a></td>
+				</tr>
+				<tr>
+					<td>Arch Linux (Git)</td>
+					<td><a href="https://aur.archlinux.org/packages/gnome-mpv-git">https://aur.archlinux.org/packages/gnome-mpv-git</a></td>
+				</tr>
+				<tr>
+					<td>Debian testing</td>
+					<td><a href="https://packages.debian.org/testing/gnome-mpv">https://packages.debian.org/testing/gnome-mpv</a></td>
+				</tr>
+				<tr>
+					<td>Debian unstable</td>
+					<td><a href="https://packages.debian.org/sid/gnome-mpv">https://packages.debian.org/sid/gnome-mpv</a></td>
+				</tr>
+				<tr>
+					<td>Fedora (rpmfusion)</td>
+					<td><a href="https://admin.rpmfusion.org/pkgdb/package/free/gnome-mpv/">https://admin.rpmfusion.org/pkgdb/package/free/gnome-mpv/</a></td>
+				</tr>
+				<tr>
+					<td>Frugalware</td>
+					<td><a href="http://www4.frugalware.org/pub/linux/distributions/frugalware/frugalware-current/source/xapps-extra/gnome-mpv/">http://www4.frugalware.org/pub/linux/distributions/frugalware/frugalware-current/source/xapps-extra/gnome-mpv/</a></td>
+				</tr>
+				<tr>
+					<td>OpenSUSE</td>
+					<td><a href="https://software.opensuse.org/package/gnome-mpv">https://software.opensuse.org/package/gnome-mpv</a></td>
+				</tr>
+				<tr>
+					<td>Gentoo</td>
+					<td><a href="https://packages.gentoo.org/packages/media-video/gnome-mpv">https://packages.gentoo.org/packages/media-video/gnome-mpv</a></td>
+				</tr>
+				<tr>
+					<td>Guix</td>
+					<td><a href="https://www.gnu.org/software/guix/packages/g.html#gnome-mpv">https://www.gnu.org/software/guix/packages/g.html#gnome-mpv</a></td>
+				</tr>
+				<tr>
+					<td>Solus</td>
+					<td><a href="https://packages.solus-project.com/shannon/g/gnome-mpv/">https://packages.solus-project.com/shannon/g/gnome-mpv/</a></td>
+				</tr>
+				<tr>
+					<td>Ubuntu</td>
+					<td><a href="https://launchpad.net/~xuzhen666/+archive/ubuntu/gnome-mpv">https://launchpad.net/~xuzhen666/+archive/ubuntu/gnome-mpv</a></td>
+				</tr>
+			</table>
+
+			<h2>Flatpak</h2>
+			<p>
+				<a href="https://flatpak.org">Flatpak</a> packages support
+				multiple distributions and are sandboxed. Flatpak 0.9.5+ is
+				recommended for best integration.
+			</p>
+			<p>
+				Stable releases are hosted on <a href="https://flathub.org">Flathub</a>:
+			</p>
+			<code>
+				flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+			</code>
+			<code>
+				flatpak install flathub io.github.GnomeMpv
+			</code>
+			<p>Development versions are also packaged:</p>
+			<code>
+				flatpak install https://dl.tingping.se/flatpak/gnome-mpv.flatpakref
+			</code>
+
+			<h2>Source Code</h2>
+			<p>
+				The source code can be obtained from the
+				<a href="https://github.com/gnome-mpv/gnome-mpv">official repository</a> on
+				GitHub.
+			</p>
+
+			<p>
+				Before building, ensure that the following dependencies are
+				installed.
+			</p>
+
+			<ul>
+				<li>appstream-glib<sup><a href="#note1">[1]</a></sup> (build)</li>
+				<li>autoconf &gt;= 2.69<sup><a href="#note1">[1]</a></sup> (build)</li>
+				<li>autoconf-archive<sup><a href="#note1">[1]</a></sup> (build)</li>
+				<li>automake &gt;= 1.12<sup><a href="#note1">[1]</a></sup> (build)</li>
+				<li>pkg-config (build)</li>
+				<li>gcc (build)</li>
+				<li>glib &gt;= 2.44</li>
+				<li>gtk &gt;= 3.22</li>
+				<li>mpv &gt;= 0.27</li>
+				<li>epoxy</li>
+				<li>lua (optional)</li>
+				<li>youtube-dl (optional)</li>
+			</ul>
+			<p>
+				<a name="note1">[1]</a>: Not required when building from
+				release tarballs
+			</p>
+
+			<p>
+				Run the following command in the source code directory to build and install:
+			</p>
+			<code>
+				./autogen.sh &amp;&amp; make &amp;&amp; sudo make install
+			</code>
+			<p>
+				When building from release tarballs, replace
+				<tt>./autogen.sh</tt> with <tt>./configure</tt>:
+			</p>
+			<code>
+				./configure &amp;&amp; make &amp;&amp; sudo make install
+			</code>
+			<p>
+				Alternatively, you can use Meson:
+			</p>
+			<code>
+				meson build &amp;&amp; cd build &amp;&amp; ninja &amp;&amp; sudo ninja install
+			</code>
+		</div>
+
+		<div class="footer">
+			Copyright &copy; 2018 gnome-mpv.
+			This webpage is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+		</div>
+	</body>
+</html>

@@ -1,0 +1,125 @@
+body
+{
+	font-family: sans-serif;
+	background-color: #f5f5f5;
+	margin: 0px;
+}
+
+a.navitem
+{
+	text-decoration: none;
+}
+
+a
+{
+	color: #009aff;
+}
+
+div.navbar-bg
+{
+	background-color: #009aff;
+}
+
+div.navbar
+{
+	display: flex;
+	justify-content: flex-end;
+	height: 45px;
+	max-width: 970px;
+	margin: auto;
+}
+
+div.navitem
+{
+	color: white;
+	font-size:125%;
+	padding: 13px 10px 7px 10px;
+	height: 25px;
+}
+
+div.navitem:hover
+{
+	background-color: #008aef;
+}
+
+div.current-navitem
+{
+	font-weight: bold;
+}
+
+a.footnote
+{
+	text-decoration: none;
+}
+
+div.content-bg
+{
+	background-color: #f5f5f5;
+	padding: 10px;
+}
+
+div.content
+{
+	margin: auto;
+	max-width: 970px;
+	color: black;
+	padding: 10px;
+}
+
+div.overview
+{
+	margin-bottom: 20px;
+}
+
+h2,h3
+{
+	color: #009aff;
+	margin-bottom: 5px;
+}
+
+h2
+{
+	font-size: 30px;
+}
+
+p
+{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+code, tt.code
+{
+	padding: 10px;
+	background-color: #dfe0e0;
+	display: block;
+}
+
+table
+{
+	border-collapse: collapse;
+}
+
+table
+{
+	width: 100%;
+}
+
+tr
+{
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+td
+{
+	padding: 5px;
+}
+
+div.footer
+{
+	color: #666;
+	margin: 30px auto 20px auto;
+	text-align: center;
+	font-size: 70%;
+}
