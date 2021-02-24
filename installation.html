@@ -26,120 +26,46 @@
 		</div>
 
 		<div class="content">
-			<h2>GNU/Linux packages</h2>
-			<table>
-				<tr>
-					<td>Arch Linux</td>
-					<td><a href="https://www.archlinux.org/packages/celluloid">https://www.archlinux.org/packages/celluloid</a></td>
-				</tr>
-				<tr>
-					<td>Arch Linux (Git)</td>
-					<td><a href="https://aur.archlinux.org/packages/celluloid-git">https://aur.archlinux.org/packages/celluloid-git</a></td>
-				</tr>
-				<tr>
-					<td>Debian</td>
-					<td><a href="https://tracker.debian.org/pkg/celluloid">https://tracker.debian.org/pkg/celluloid</a></td>
-				</tr>
-				<tr>
-					<td>Fedora (rpmfusion)</td>
-					<td><a href="https://admin.rpmfusion.org/pkgdb/package/free/celluloid">https://admin.rpmfusion.org/pkgdb/package/free/celluloid</a></td>
-				</tr>
-				<tr>
-					<td>Frugalware</td>
-					<td><a href="https://www.frugalware.org/packages/219868">https://www.frugalware.org/packages/219868</a></td>
-				</tr>
-				<tr>
-					<td>OpenSUSE</td>
-					<td><a href="https://software.opensuse.org/package/gnome-mpv">https://software.opensuse.org/package/gnome-mpv</a></td>
-				</tr>
-				<tr>
-					<td>Gentoo</td>
-					<td><a href="https://packages.gentoo.org/packages/media-video/celluloid">https://packages.gentoo.org/packages/media-video/celluloid</a></td>
-				</tr>
-				<tr>
-					<td>Guix</td>
-					<td><a href="http://guix.gnu.org/packages/celluloid-0.18">http://guix.gnu.org/packages/celluloid-0.18</a></td>
-				</tr>
-				<tr>
-					<td>Solus</td>
-					<td><a href="https://packages.getsol.us/shannon/g/gnome-mpv/">https://packages.getsol.us/shannon/g/gnome-mpv/</a></td>
-				</tr>
-				<tr>
-					<td>Ubuntu</td>
-					<td><a href="https://launchpad.net/~xuzhen666/+archive/ubuntu/gnome-mpv">https://launchpad.net/~xuzhen666/+archive/ubuntu/gnome-mpv</a></td>
-				</tr>
-			</table>
+			<h2>
+<a id="user-content-gnulinux-packages" class="anchor" href="#gnulinux-packages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GNU/Linux packages</h2>
+<ul>
+<li>Arch Linux: <a href="https://www.archlinux.org/packages/celluloid" rel="nofollow">https://www.archlinux.org/packages/celluloid</a>
+</li>
+<li>Arch Linux (Git): <a href="https://aur.archlinux.org/packages/celluloid-git" rel="nofollow">https://aur.archlinux.org/packages/celluloid-git</a>
+</li>
+<li>Debian: <a href="https://tracker.debian.org/pkg/celluloid" rel="nofollow">https://tracker.debian.org/pkg/celluloid</a>
+</li>
+<li>Fedora (rpmfusion): <a href="https://admin.rpmfusion.org/pkgdb/package/free/celluloid/" rel="nofollow">https://admin.rpmfusion.org/pkgdb/package/free/celluloid/</a>
+</li>
+<li>OpenSUSE: <a href="https://software.opensuse.org/package/celluloid" rel="nofollow">https://software.opensuse.org/package/celluloid</a>
+</li>
+<li>Gentoo: <a href="https://packages.gentoo.org/packages/media-video/celluloid" rel="nofollow">https://packages.gentoo.org/packages/media-video/celluloid</a>
+</li>
+<li>Guix: <a href="http://guix.gnu.org/packages/celluloid-0.18" rel="nofollow">http://guix.gnu.org/packages/celluloid-0.18</a>
+</li>
+<li>Solus: <a href="https://packages.getsol.us/shannon/g/gnome-mpv/" rel="nofollow">https://packages.getsol.us/shannon/g/gnome-mpv/</a>
+</li>
+<li>Ubuntu: <a href="https://launchpad.net/~xuzhen666/+archive/ubuntu/gnome-mpv" rel="nofollow">https://launchpad.net/~xuzhen666/+archive/ubuntu/gnome-mpv</a>
+</li>
+</ul>
+<h2>
+<a id="user-content-flatpak" class="anchor" href="#flatpak" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Flatpak</h2>
+<p><a href="https://flatpak.org" rel="nofollow">Flatpak</a> packages support multiple distributions and are sandboxed.
+Flatpak 0.9.5+ is recommended for best integration.</p>
+<p>Stable releases are hosted on <a href="https://flathub.org" rel="nofollow">Flathub</a>:</p>
+<div class="highlight highlight-source-shell"><pre>flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub io.github.celluloid_player.Celluloid</pre></div>
+<p>Development versions are also packaged:</p>
+<div class="highlight highlight-source-shell"><pre>flatpak install https://dl.tingping.se/flatpak/gnome-mpv.flatpakref</pre></div>
+<h2>
+<a id="user-content-source-code" class="anchor" href="#source-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Source code</h2>
+<p>Run the following command in the source code directory to build and install:</p>
+<div class="highlight highlight-source-shell"><pre>meson build <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> build <span class="pl-k">&amp;&amp;</span> ninja <span class="pl-k">&amp;&amp;</span> sudo ninja install</pre></div>
+<p>Alternatively, you can use Autotools:</p>
+<div class="highlight highlight-source-shell"><pre>./autogen.sh <span class="pl-k">&amp;&amp;</span> make <span class="pl-k">&amp;&amp;</span> sudo make install</pre></div>
+<p>When building from release tarballs, replace <code>./autogen.sh</code> with <code>./configure</code>:</p>
+<div class="highlight highlight-source-shell"><pre>./configure <span class="pl-k">&amp;&amp;</span> make <span class="pl-k">&amp;&amp;</span> sudo make install</pre></div>
 
-			<h2>Flatpak</h2>
-			<p>
-				<a href="https://flatpak.org">Flatpak</a> packages support
-				multiple distributions and are sandboxed. Flatpak 0.9.5+ is
-				recommended for best integration.
-			</p>
-			<p>
-				Stable releases are hosted on <a href="https://flathub.org">Flathub</a>:
-			</p>
-			<code>
-				flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-			</code>
-			<code>
-				flatpak install flathub io.github.celluloid_player.Celluloid
-			</code>
-			<p>Development versions are also packaged:</p>
-			<code>
-				flatpak install https://dl.tingping.se/flatpak/gnome-mpv.flatpakref
-			</code>
-
-			<h2>Source Code</h2>
-			<p>
-				The source code can be obtained from the
-				<a href="https://github.com/celluloid-player/celluloid">official repository</a> on
-				GitHub.
-			</p>
-
-			<p>
-				Before building, ensure that the following dependencies are
-				installed.
-			</p>
-
-			<ul>
-				<li>appstream-glib<sup><a href="#note1">[1]</a></sup> (build)</li>
-				<li>autoconf &gt;= 2.69<sup><a href="#note1">[1]</a></sup> (build)</li>
-				<li>autoconf-archive<sup><a href="#note1">[1]</a></sup> (build)</li>
-				<li>automake &gt;= 1.12<sup><a href="#note1">[1]</a></sup> (build)</li>
-				<li>pkg-config (build)</li>
-				<li>gcc (build)</li>
-				<li>glib &gt;= 2.44</li>
-				<li>gtk &gt;= 3.22</li>
-				<li>mpv &gt;= 0.27</li>
-				<li>epoxy</li>
-				<li>lua (optional)</li>
-				<li>youtube-dl (optional)</li>
-			</ul>
-			<p>
-				<a name="note1">[1]</a>: Not required when building from
-				release tarballs
-			</p>
-
-			<p>
-				Run the following command in the source code directory to build and install:
-			</p>
-			<code>
-				./autogen.sh &amp;&amp; make &amp;&amp; sudo make install
-			</code>
-			<p>
-				When building from release tarballs, replace
-				<tt>./autogen.sh</tt> with <tt>./configure</tt>:
-			</p>
-			<code>
-				./configure &amp;&amp; make &amp;&amp; sudo make install
-			</code>
-			<p>
-				Alternatively, you can use Meson:
-			</p>
-			<code>
-				meson build &amp;&amp; cd build &amp;&amp; ninja &amp;&amp; sudo ninja install
-			</code>
 		</div>
 
 		<div class="footer">
