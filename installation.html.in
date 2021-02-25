@@ -17,9 +17,9 @@
 				<div class="navitem current-navitem">
 					Installation
 				</div>
-				<a class="navitem" href="help.html">
+				<a class="navitem" href="bug-reports.html">
 					<div class="navitem">
-						Help
+						Bug Reports
 					</div>
 				</a>
 			</div>
