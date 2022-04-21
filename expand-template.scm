@@ -75,13 +75,19 @@
                           (cute scm->json `(("text" . ,str)) <>)))
     body))
 
-(define (get-readme)
+(define (fetch url)
   (receive (status body)
-      (http-get  "https://raw.githubusercontent.com/celluloid-player/celluloid/master/README.md")
+      (http-get url)
     body))
 
+(define (get-readme)
+  (fetch "https://raw.githubusercontent.com/celluloid-player/celluloid/master/README.md"))
+
+(define (get-faq)
+  (fetch "https://raw.githubusercontent.com/wiki/celluloid-player/celluloid/FAQ.md"))
+
 ;;; Template expansion
-(define* (expand-template str src #:optional (start 0) (min-level 2))
+(define* (expand-template str #:optional (start 0) (min-level 2))
   (define (ensure-min-level str)
     (let* ((str-lines (lines str))
            (first-header (find (cute header? <>) (lines str)))
@@ -89,17 +95,25 @@
        (unlines (map (cute shift-header <> (- min-level first-header-level))
                      str-lines))))
 
-  (let ((matches (string-match "\\{([^\\}]+)\\}" str start)))
+  (let ((matches (string-match "\\{([^\\ }]+)(\\s+[^\\ }]+)?\\}" str start)))
     (if matches
         (let* ((process-section (compose render-markdown ensure-min-level))
-               (header-text (match:substring matches 1))
-               (section (process-section (get-section header-text src)))
+               (page-text (match:substring matches 1))
+               (header-text (let ((text (match:substring matches 2)))
+                              (and text (string-trim text))))
+               (src (cond
+                      ((string-ci=? page-text "readme") (get-readme))
+                      ((string-ci=? page-text "faq") (get-faq))
+                      (else (error "ERROR: Unknown page '~A'" page-text))))
+               (section (process-section (if header-text
+                                             (get-section header-text src)
+                                             src)))
                (new-str (string-replace str
                                         section
                                         (match:start matches 0)
                                         (match:end matches 0)))
                (new-start (+ (match:start matches 0) (string-length section))))
-          (expand-template new-str src new-start min-level))
+          (expand-template new-str new-start min-level))
         str)))
 
-(port-map (cute expand-template <> (get-readme)))
+(port-map expand-template)
