@@ -1,8 +1,8 @@
-<!-- vim: set ts=4 sw=4 tw=0: !-->
+<!-- vim: set ts=4 sw=4: !-->
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Celluloid - Installation</title>
+		<title>Celluloid - FAQ</title>
 		<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 		<link rel="shortcut icon" href="images/favicon.png">
 	</head>
@@ -14,29 +14,31 @@
 						Home
 					</div>
 				</a>
-				<div class="navitem current-navitem">
-					Installation
-				</div>
+				<a class="navitem" href="installation.html">
+					<div class="navitem">
+						Installation
+					</div>
+				</a>
 				<a class="navitem" href="bug-reports.html">
 					<div class="navitem">
 						Bug Reports
 					</div>
 				</a>
-				<a class="navitem" href="faq.html">
-					<div class="navitem">
-						FAQ
-					</div>
-				</a>
+				<div class="navitem current-navitem">
+					FAQ
+				</div>
 			</div>
 		</div>
 
 		<div class="content">
-			{README Installation}
+			{FAQ}
 		</div>
 
+
 		<div class="footer">
-			Copyright &copy; 2018-2019 gnome-mpv.
+			Copyright &copy; 2018-2022 gnome-mpv.
 			This webpage is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 		</div>
 	</body>
 </html>
+

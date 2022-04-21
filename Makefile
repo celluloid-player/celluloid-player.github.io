@@ -1,4 +1,6 @@
-all: installation.html
+PAGES=installation.html faq.html
+
+all: $(PAGES)
 
 %.html: %.html.in
 	guile expand-template.scm < $< > $@
@@ -6,4 +8,4 @@ all: installation.html
 .PHONY: clean
 
 clean:
-	rm -fv installation.html
+	rm -fv $(PAGES)
