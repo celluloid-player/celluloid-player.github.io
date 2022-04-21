@@ -41,34 +41,7 @@
 			<p>
 				When reporting bugs:
 				<div>
-					<ul>
-<li>Make sure you're using the latest release.</li>
-<li>If possible, also check if the problem has already been fixed in git master.</li>
-<li>Don't report multiple unrelated/barely related bugs in one issue.</li>
-<li>Attach a log file.
-<ul>
-<li>You can make Celluloid print log messages by running
-<code>G_MESSAGES_DEBUG=all celluloid --mpv-options='--msg-level=all=trace'</code>
-</li>
-<li>The command above will cause Celluloid to generate a large amount of
-log messages, so you may also want to redirect the output to a file.
-For example, you can redirect log messages to <code>/tmp/celluloid.log</code>
-with this command:
-<code>G_MESSAGES_DEBUG=all celluloid --mpv-options='--msg-level=all=trace' &gt; /tmp/celluloid.log</code>.</li>
-</ul>
-</li>
-<li>If the issue involves crashing, include a backtrace in the report.
-<ul>
-<li>You can create a backtrace by running
-<code>gdb -ex 'set pagination off' -ex run -ex bt celluloid</code>
-and perform the action that triggers the crash.</li>
-</ul>
-</li>
-<li>If the issue is a regression, it would be very helpful if you could perform a
-<a href="https://git-scm.com/docs/git-bisect" rel="nofollow">bisect</a> to locate the commit that
-introduces the regression.</li>
-</ul>
-
+					{CONTRIBUTING Reporting Bugs}
 				</div>
 			</p>
 		</div>

@@ -1,4 +1,4 @@
-PAGES=installation.html faq.html
+PAGES=installation.html bug-reports.html faq.html
 
 all: $(PAGES)
 

@@ -83,36 +83,52 @@
 (define (get-readme)
   (fetch "https://raw.githubusercontent.com/celluloid-player/celluloid/master/README.md"))
 
+(define (get-contributing)
+  (fetch "https://raw.githubusercontent.com/celluloid-player/celluloid/master/.github/CONTRIBUTING.md"))
+
 (define (get-faq)
   (fetch "https://raw.githubusercontent.com/wiki/celluloid-player/celluloid/FAQ.md"))
 
 ;;; Template expansion
 (define* (expand-template str #:optional (start 0) (min-level 2))
   (define (ensure-min-level str)
-    (let* ((str-lines (lines str))
-           (first-header (find (cute header? <>) (lines str)))
-           (first-header-level (cadr (values->list (header? first-header)))))
-       (unlines (map (cute shift-header <> (- min-level first-header-level))
-                     str-lines))))
+    (let* ((str-lines
+             (lines str))
+           (first-header
+             (find (cute header? <>) str-lines))
+           (first-header-level
+             (and first-header (cadr (values->list (header? first-header))))))
+      (if first-header-level
+          (unlines (map (cute shift-header <> (- min-level first-header-level))
+                        str-lines))
+          str)))
 
-  (let ((matches (string-match "\\{([^\\ }]+)(\\s+[^\\ }]+)?\\}" str start)))
+  (let ((matches (string-match "\\{([^ }]+)(\\s+[^}]+)?\\}" str start)))
     (if matches
-        (let* ((process-section (compose render-markdown ensure-min-level))
-               (page-text (match:substring matches 1))
-               (header-text (let ((text (match:substring matches 2)))
-                              (and text (string-trim text))))
-               (src (cond
-                      ((string-ci=? page-text "readme") (get-readme))
-                      ((string-ci=? page-text "faq") (get-faq))
-                      (else (error "ERROR: Unknown page '~A'" page-text))))
-               (section (process-section (if header-text
-                                             (get-section header-text src)
-                                             src)))
-               (new-str (string-replace str
-                                        section
-                                        (match:start matches 0)
-                                        (match:end matches 0)))
-               (new-start (+ (match:start matches 0) (string-length section))))
+        (let* ((process-section
+                 (compose render-markdown ensure-min-level))
+               (page-text
+                 (match:substring matches 1))
+               (header-text
+                 (let ((text (match:substring matches 2)))
+                   (and text (string-trim text))))
+               (src
+                 (cond
+                   ((string-ci=? page-text "readme") (get-readme))
+                   ((string-ci=? page-text "contributing") (get-contributing))
+                   ((string-ci=? page-text "faq") (get-faq))
+                   (else (error "ERROR: Unknown page '~A'" page-text))))
+               (section
+                 (process-section
+                   (if header-text (get-section header-text src) src)))
+               (new-str
+                 (string-replace
+                   str
+                   section
+                   (match:start matches 0)
+                   (match:end matches 0)))
+               (new-start
+                 (+ (match:start matches 0) (string-length section))))
           (expand-template new-str new-start min-level))
         str)))
 
