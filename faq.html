@@ -31,8 +31,7 @@
 		</div>
 
 		<div class="content">
-			<h2>
-<a id="user-content-how-do-i-use-an-mpv-config-file-mpvconf" class="anchor" href="#how-do-i-use-an-mpv-config-file-mpvconf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I use an mpv config file (<code>mpv.conf</code>)?</h2>
+			<h2><a id="user-content-how-do-i-use-an-mpv-config-file-mpvconf" class="anchor" aria-hidden="true" href="#how-do-i-use-an-mpv-config-file-mpvconf"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I use an mpv config file (<code>mpv.conf</code>)?</h2>
 <ol>
 <li>Open the <code>Preferences</code> dialog (Ctrl + P).</li>
 <li>Switch to the <code>Config Files</code> tab.</li>
@@ -41,8 +40,7 @@
 config file.</li>
 <li>Click the <code>Save</code> button.</li>
 </ol>
-<h2>
-<a id="user-content-how-do-i-use-an-input-config-file-inputconf" class="anchor" href="#how-do-i-use-an-input-config-file-inputconf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I use an input config file (<code>input.conf</code>)?</h2>
+<h2><a id="user-content-how-do-i-use-an-input-config-file-inputconf" class="anchor" aria-hidden="true" href="#how-do-i-use-an-input-config-file-inputconf"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I use an input config file (<code>input.conf</code>)?</h2>
 <ol>
 <li>Open the <code>Preferences</code> dialog (Ctrl + P).</li>
 <li>Switch to the <code>Config Files</code> tab.</li>
@@ -51,15 +49,12 @@ config file.</li>
 your config file.</li>
 <li>Click the <code>Save</code> button.</li>
 </ol>
-<h2>
-<a id="user-content-how-do-i-configure-keymouse-bindings" class="anchor" href="#how-do-i-configure-keymouse-bindings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I configure key/mouse bindings?</h2>
+<h2><a id="user-content-how-do-i-configure-keymouse-bindings" class="anchor" aria-hidden="true" href="#how-do-i-configure-keymouse-bindings"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I configure key/mouse bindings?</h2>
 <p>Use an <a href="https://github.com/mpv-player/mpv/blob/master/DOCS/man/input.rst">input config file (<code>input.conf</code>)</a>.</p>
-<h2>
-<a id="user-content-how-do-i-set-mpv-options-from-the-command-line" class="anchor" href="#how-do-i-set-mpv-options-from-the-command-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I set mpv options from the command line?</h2>
+<h2><a id="user-content-how-do-i-set-mpv-options-from-the-command-line" class="anchor" aria-hidden="true" href="#how-do-i-set-mpv-options-from-the-command-line"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I set mpv options from the command line?</h2>
 <p>Prefix the option name with <code>mpv-</code>. For example, passing <code>--mpv-vf=vflip</code> to
 Celluloid is equivalent to passing <code>--vf=vflip</code> to mpv.</p>
-<h2>
-<a id="user-content-how-do-i-use-loudness-normalization" class="anchor" href="#how-do-i-use-loudness-normalization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I use loudness normalization?</h2>
+<h2><a id="user-content-how-do-i-use-loudness-normalization" class="anchor" aria-hidden="true" href="#how-do-i-use-loudness-normalization"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I use loudness normalization?</h2>
 <p>Use the <a href="https://ffmpeg.org/ffmpeg-filters.html#loudnorm" rel="nofollow">loudnorm</a> filter. To
 enable the filter, add the following line to your mpv config file.</p>
 <pre><code>af=lavfi=[loudnorm]
@@ -67,8 +62,7 @@ enable the filter, add the following line to your mpv config file.</p>
 <p>There's also another filter called
 <a href="https://ffmpeg.org/ffmpeg-filters.html#dynaudnorm" rel="nofollow">dynaudnorm</a> that can be used
 instead. Check ffmpeg's documentation for details.</p>
-<h2>
-<a id="user-content-celluloid-wont-start-when-installed-under-nonstandard-prefix" class="anchor" href="#celluloid-wont-start-when-installed-under-nonstandard-prefix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Celluloid won't start when installed under nonstandard prefix</h2>
+<h2><a id="user-content-celluloid-wont-start-when-installed-under-nonstandard-prefix" class="anchor" aria-hidden="true" href="#celluloid-wont-start-when-installed-under-nonstandard-prefix"><span aria-hidden="true" class="octicon octicon-link"></span></a>Celluloid won't start when installed under nonstandard prefix</h2>
 <p>If Celluloid is linked against GLib in a different prefix from the one it's
 installed in, you'll need to set the environment variable <code>GSETTINGS_SCHEMA_DIR</code>
 to the directory containing Celluloid's GSettings schema files. If you used the
