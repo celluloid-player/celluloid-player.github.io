@@ -48,13 +48,13 @@
 <li>Attach a log file.
 <ul>
 <li>You can make Celluloid print log messages by running
-<code>G_MESSAGES_DEBUG=all celluloid --mpv-options='--msg-level=all=trace'</code>
+<code>G_MESSAGES_DEBUG=all celluloid --mpv-msg-level=all=trace</code>
 </li>
 <li>The command above will cause Celluloid to generate a large amount of
 log messages, so you may also want to redirect the output to a file.
 For example, you can redirect log messages to <code>/tmp/celluloid.log</code>
 with this command:
-<code>G_MESSAGES_DEBUG=all celluloid --mpv-options='--msg-level=all=trace' &gt; /tmp/celluloid.log</code>.</li>
+<code>G_MESSAGES_DEBUG=all celluloid --mpv-msg-level=all=trace &gt; /tmp/celluloid.log</code>.</li>
 </ul>
 </li>
 <li>If the issue involves crashing, include a backtrace in the report.
