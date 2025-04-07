@@ -106,22 +106,36 @@ function set_csd_enable()
 		"$1"
 }
 
-function set_show_playlist()
+function set_floating_controls()
 {
 	gsettings set \
-		io.github.celluloid-player.Celluloid.window-state \
-		show-playlist \
+		io.github.celluloid-player.Celluloid \
+		always-use-floating-controls \
 		"$1"
+}
+
+function set_show_playlist()
+{
+	gdbus call \
+		--session \
+		--dest io.github.celluloid_player.Celluloid \
+		--object-path /io/github/celluloid_player/Celluloid/window/1 \
+		--method org.gtk.Actions.Activate \
+		'set-playlist-visible' \
+		"[<$1>]" \
+		'{}' \
+		> /dev/null
 }
 
 function run()
 {
 	echo "Taking screenshot $3 (csd=$1, playlist=$2)..."
 	set_csd_enable "$1"
+	launch "$5" "$6"
 	set_show_playlist "$2"
-	launch "$4" "$5"
+	set_floating_controls "$3"
 	focus
-	screenshot "$3"
+	screenshot "$4"
 	kill -TERM $PID
 	PID=""
 	sleep 1
@@ -145,7 +159,7 @@ export GSETTINGS_BACKEND=keyfile
 
 trap cleanup EXIT
 
-ARRAY=({true,false}\ {false,true})
+ARRAY=({true,false}\ {false,true}\ {false,true})
 COUNT=0
 
 for X in "${ARRAY[@]}"
