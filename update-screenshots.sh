@@ -63,7 +63,7 @@ function launch()
 
 	celluloid --mpv-panscan=1 --mpv-autofit=0 &
 	PID=$!
-	sleep 1
+	sleep 2
 	gdbus call \
 		--session \
 		--dest org.mpris.MediaPlayer2.io.github.celluloid_player.Celluloid.instance-1 \
@@ -71,6 +71,7 @@ function launch()
 		--method org.mpris.MediaPlayer2.Player.OpenUri \
 		"$2" \
 		> /dev/null
+	sleep 1
 	gdbus call \
 		--session \
 		--dest org.mpris.MediaPlayer2.io.github.celluloid_player.Celluloid.instance-1 \
